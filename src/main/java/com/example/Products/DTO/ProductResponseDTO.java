@@ -1,17 +1,8 @@
-package com.example.Products.Model;
+package com.example.Products.DTO;
 
-import jakarta.persistence.*;
+public class ProductResponseDTO {
 
-
-@Entity
-@Table
-public class Product {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int product_id;
-
-    private String productName;
+    private String product_name;
 
     private String product_details;
 
@@ -21,39 +12,29 @@ public class Product {
 
     private String product_status;
 
-    @ManyToOne
-    @JoinColumn
-    private Category category;
+    private String category_name;
 
-    @ManyToOne
-    @JoinColumn
-    private Manufacturer manufacturer;
+    private String manufacturer_name;
 
-    public Product() {
+    public ProductResponseDTO() {
     }
 
-    public Product(String product_name, String product_details, int quantity, int price_per_unit, String product_status) {
-        this.productName = product_name;
+    public ProductResponseDTO(String product_name, String product_details, int quantity, int price_per_unit, String product_status, String category_name, String manufacturer_name) {
+        this.product_name = product_name;
         this.product_details = product_details;
         this.quantity = quantity;
         this.price_per_unit = price_per_unit;
         this.product_status = product_status;
-    }
-
-    public int getProduct_id() {
-        return product_id;
-    }
-
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+        this.category_name = category_name;
+        this.manufacturer_name = manufacturer_name;
     }
 
     public String getProduct_name() {
-        return productName;
+        return product_name;
     }
 
     public void setProduct_name(String product_name) {
-        this.productName = product_name;
+        this.product_name = product_name;
     }
 
     public String getProduct_details() {
@@ -88,19 +69,19 @@ public class Product {
         this.product_status = product_status;
     }
 
-    public Category getCategory() {
-        return category;
+    public String getCategory_name() {
+        return category_name;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategory_name(String category_name) {
+        this.category_name = category_name;
     }
 
-    public Manufacturer getManufacturer() {
-        return manufacturer;
+    public String getManufacturer_name() {
+        return manufacturer_name;
     }
 
-    public void setManufacturer(Manufacturer manufacturer) {
-        this.manufacturer = manufacturer;
+    public void setManufacturer_name(String manufacturer_name) {
+        this.manufacturer_name = manufacturer_name;
     }
 }
